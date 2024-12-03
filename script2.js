@@ -8,7 +8,7 @@ const tampilkanTugas = () => {
     for (let index in daftarTugas) {
         console.log(`${parseInt(index) + 1}.${daftarTugas[index].namaTugas} dengan deadline tanggal ${daftarTugas[index].deadline}  memiliki prioritas ${daftarTugas[index].prioritas}.`)
 
-        tabelTugas.innerHTML += `<tr><td>${parseInt(index) + 1}.</td><td>${daftarTugas[index].namaTugas}</td><td>${daftarTugas[index].deadline}</td><td>${daftarTugas[index].prioritas}</td><td><button class="btn btn-warning" onclick = "editTugas('${daftarTugas[index].namaTugas}')">Edit</button></td><td><button class="btn btn-danger" onclick = "hapusTugas('${daftarTugas[index].namaTugas}')">Delete</button></td><td><input type ="checkbox" onclick = "selesai('${daftarTugas[index].namaTugas}')"></td></tr>`
+        tabelTugas.innerHTML += `<tr><td>${parseInt(index) + 1}.</td><td>${daftarTugas[index].namaTugas}</td><td>${daftarTugas[index].deadline}</td><td>${daftarTugas[index].prioritas}</td><td><button class="btn btn-warning" onclick = "editTugas('${daftarTugas[index].namaTugas}')">Edit</button></td><td><button class="btn btn-danger" onclick = "hapusTugas('${daftarTugas[index].namaTugas}')">Delete</button></td>td><input type ="checkbox" onclick = "selesai('${daftarTugas[index].namaTugas}')"></td></tr>`
     }
 }
 
@@ -45,7 +45,7 @@ let tambahTugas = () => {
 }
 
 const cariTugas = (namaTugas) => {
-    // tampilkan index jika nama karyawan === nama
+    // tampilkan index jika nama tugas === nama
     for (let i = 0; i < daftarTugas.length; i++) {
         if (daftarTugas[i].namaTugas == namaTugas)
             return i
@@ -68,6 +68,7 @@ const editTugas = (target) => {
     console.log(daftarTugas[tugasEdit])
 }
 
+
 const hapusTugas = (target) => {
     const tugasDihapus = cariTugas(target)
  // menghapus element dari dalam array
@@ -87,15 +88,6 @@ const cancel = (target) => {
 
 document.getElementById("")
 
-function hitungTotalTugas() {
-    const tabelTugas = document.querySelector('#tabelTugas');
-    const baris = tabelTugas.querySelectorAll('tr');
-    const total = baris.length;
-    document.getElementById('totalTugas').textContent = total;
-}
-
-document.addEventListener('DOMContentLoaded', hitungTotalTugas);
-document.querySelector('#totalTugas').textContent = 'Total Tugas : ${total}';
 
 // const tambahkan = () => {
 //     tugasBaru += 1
