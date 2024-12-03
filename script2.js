@@ -8,7 +8,7 @@ const tampilkanTugas = () => {
     for (let index in daftarTugas) {
         console.log(`${parseInt(index) + 1}.${daftarTugas[index].namaTugas} dengan deadline tanggal ${daftarTugas[index].deadline}  memiliki prioritas ${daftarTugas[index].prioritas}.`)
 
-        tabelTugas.innerHTML += `<tr><td>${parseInt(index) + 1}.</td><td>${daftarTugas[index].namaTugas}</td><td>${daftarTugas[index].deadline}</td><td>${daftarTugas[index].prioritas}</td><td><button class="btn btn-warning" onclick = "editTugas('${daftarTugas[index].namaTugas}')">Edit</button></td><td><button class="btn btn-danger" onclick = "hapusTugas('${daftarTugas[index].namaTugas}')">Delete</button></td>td><input type ="checkbox" onclick = "selesai('${daftarTugas[index].namaTugas}')"></td></tr>`
+        tabelTugas.innerHTML += `<tr><td>${parseInt(index) + 1}.</td><td>${daftarTugas[index].namaTugas}</td><td>${daftarTugas[index].deadline}</td><td>${daftarTugas[index].prioritas}</td><td><button class="btn btn-warning" onclick = "editTugas('${daftarTugas[index].namaTugas}')">Edit</button></td><td><button class="btn btn-danger" onclick = "hapusTugas('${daftarTugas[index].namaTugas}')">Delete</button></td><td><input type ="checkbox" onclick = "selesai('${daftarTugas[index].namaTugas}')"></td></tr>`
     }
 }
 
@@ -45,7 +45,7 @@ let tambahTugas = () => {
 }
 
 const cariTugas = (namaTugas) => {
-    // tampilkan index jika nama tugas === nama
+    // tampilkan index jika nama karyawan === nama
     for (let i = 0; i < daftarTugas.length; i++) {
         if (daftarTugas[i].namaTugas == namaTugas)
             return i
@@ -68,7 +68,6 @@ const editTugas = (target) => {
     console.log(daftarTugas[tugasEdit])
 }
 
-
 const hapusTugas = (target) => {
     const tugasDihapus = cariTugas(target)
  // menghapus element dari dalam array
@@ -88,10 +87,28 @@ const cancel = (target) => {
 
 document.getElementById("")
 
+document.addEventListener('DOMContentLoaded', hitungTotalTugas);
+
+// menghitung total tugas 
+function hitungTotalTugas() {
+    const tabelTugas = document.querySelector('#tabelTugas');
+    let jumlahTugas = 0;
+    
+    if (tabelTugas) {
+        // iterasi setiap elemen anak (tgas) dlm tbel
+        for (let i = 0; i < tabelTugas.children.length; i++) {
+         // menambah 1 untuk setiap elemen anak (tugas)
+         jumlahTugas +=1 ;
+        }
+    }
+document.getElementById('totalTugas').textContent = `${jumlahTugas}`;
+}
+
 
 // const tambahkan = () => {
 //     tugasBaru += 1
 //     tampilkanTugas()
+     
 
 //     saveToStorage()
 // }
