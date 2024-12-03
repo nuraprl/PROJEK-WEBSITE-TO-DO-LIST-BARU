@@ -107,5 +107,16 @@ function hitungTotalTugas() {
         // Hitung jumlah baris tugas yang ada
          jumlahTugas = barisTugas.length - 1; // Mengurangi 1 jika ada baris header
         }
-        document.getElementById('totalTugas').textContent = jumlah
+        document.getElementById('totalTugas').textContent = jumlahTugas
     }
+
+    // update status selesai
+const selesaiTugas = (namaTugas) => {
+    const index = cariTugas(namaTugas);
+    if (index !== -1) {
+        daftarTugas[index].selesai = !daftarTugas[index].selesai;
+
+        // simpan perubahan ke localStorage
+        localStorage.setItem('tgs', JSON.stringify(daftarTugas));
+    }
+}
