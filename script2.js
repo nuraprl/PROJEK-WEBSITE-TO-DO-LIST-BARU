@@ -76,6 +76,10 @@ const hapusTugas = (target) => {
     tampilkanTugas() 
    
     } 
+
+    localStorage.setItem('tgs', JSON.stringify(daftarTugas));
+
+    hapusTugas()
 }
 
 const cancel = (target) => {
@@ -87,6 +91,8 @@ const cancel = (target) => {
 
 document.getElementById("")
 
+
+
 document.addEventListener('DOMContentLoaded', hitungTotalTugas);
 
 // menghitung total tugas 
@@ -95,30 +101,11 @@ function hitungTotalTugas() {
     let jumlahTugas = 0;
     
     if (tabelTugas) {
-        // iterasi setiap elemen anak (tgas) dlm tbel
-        for (let i = 0; i < tabelTugas.children.length; i++) {
-         // menambah 1 untuk setiap elemen anak (tugas)
-         jumlahTugas +=1 ;
+        // Menyaring hanya elemen baris yang sesuai, misalnya dengan tag <tr> yang berisi tugas
+        const barisTugas = tabelTugas.querySelectorAll('tr');
+
+        // Hitung jumlah baris tugas yang ada
+         jumlahTugas = barisTugas.length - 1; // Mengurangi 1 jika ada baris header
         }
+        document.getElementById('totalTugas').textContent = jumlahTugas
     }
-document.getElementById('totalTugas').textContent = `${jumlahTugas}`;
-}
-
-
-// const tambahkan = () => {
-//     tugasBaru += 1
-//     tampilkanTugas()
-     
-
-//     saveToStorage()
-// }
-
-// const saveToStorage = () => {
-//     const daftarTugas = JSON.stringify(tugasBaru)
-//     localStorage.setItem('TUGAS', tugasBaru)
-// }
-// const simpanStorage = () => {
-    // strng
-
-    // simpan pake setItem
-// }
