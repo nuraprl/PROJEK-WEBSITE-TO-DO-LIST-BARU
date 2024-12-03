@@ -107,5 +107,5 @@ function hitungTotalTugas() {
         // Hitung jumlah baris tugas yang ada
          jumlahTugas = barisTugas.length - 1; // Mengurangi 1 jika ada baris header
         }
-        document.getElementById('totalTugas').textContent = jumlahTugas
+        document.getElementById('totalTugas').textContent = jumlah
     }
